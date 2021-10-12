@@ -1,10 +1,29 @@
-// const UserData = require('../models/usersData')
-const UserData = require('../models/usersData');
+const db = require('../../db')
+const { userSchema } = require('../models/user')
+const signIn = async ( req, res ) => {
+    try {
+        const { userName, 
+            email, 
+            password, 
+            passwordVerify, 
+            phoneNumber, 
+            age, 
+            userProfileImage } = req.body;
+            
+        await userSchema()
+        const result = await db.getDb().collection('users').insertOne({userName : userName, 
+            email : email, 
+            password : password,  
+            phoneNumber : phoneNumber, 
+            age : age
+            });
+        
+            console.log(result)
 
-
-signIn = (req, res) => {
-    const { name, email, password,
-        passwordVerify, collegeName, phone, age, bio } = req.body
+    console.log(age)
+    } catch (error) {
+        console.log(error.errInfo.details.schemaRulesNotSatisfied)
+    }
     
 }
 
