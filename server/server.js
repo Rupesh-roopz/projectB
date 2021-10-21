@@ -9,6 +9,7 @@ const connectionString = process.env.CONNECTION_STRING
 const client = new MongoClient(connectionString);
 
 const app = express();
+app.use(cors())
 const port = process.env.PORT;
 app.use(express.json());
 

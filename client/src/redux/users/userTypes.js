@@ -1,0 +1,3 @@
+export const POST_USER_DATA = 'POST_USER_DATA';
+export const POST_USER_SUCCESS = 'POST_USER_SUCCESS';
+export const POST_USER_ERROR = 'POST_USER_ERROR';

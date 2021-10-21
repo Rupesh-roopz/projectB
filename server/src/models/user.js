@@ -3,15 +3,17 @@ const db = require('../../db');
 const userSchema = async () => { 
      try {
         await db.getDb().command({
-            collMod : 'users',
+            collMod : 'userss',
             validator : {
                 $jsonSchema : {
                     bsonType : 'object',
-                    required : ['userName', 
+                    required : [
+                        'userName', 
                         'email', 
                         'password',  
                         'phoneNumber', 
-                        'age'],
+                        'age'
+                    ],
                     properties : {
                         userName: {
                             bsonType: 'string'
@@ -23,17 +25,21 @@ const userSchema = async () => {
                             bsonType : 'string'
                         },
                         phoneNumber : {
-                            bsonType : 'Number'
+                            bsonType : 'long'
                         },
                         age : {
-                            bsonType : 'Number'
+                            bsonType : 'int'
+                        }, 
+                        userProfileImage : {
+                            bsonType : 'string'
                         }
                     }   
                 }
             },
+            validationLevel: "moderate"
         })
     } catch (error) {
-        console.log('error')
+        console.log(error)
     }
 }
 

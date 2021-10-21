@@ -5,7 +5,7 @@ const users = require('./userRoute')
 
 const router = () => {
     app.use('/user', users);
-    
+
     return app
 }
 
