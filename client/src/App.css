@@ -2,7 +2,41 @@
   text-align: center;
 }
 
-.signIn-mainDiv{
-  background-color: lightblue ;
+/* html{
   height: 100vh;
+  background-color: lightsalmon
+} */
+
+.Landing-mainDiv{
+  background-color: #fff ;
+  height: 100vh;
+}
+
+/* .signUp-component {
+  position:absolute;
+  left : 50%
+}
+
+.logIn-component {
+  position:absolute;
+} */
+.forms {
+  padding: 1rem;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px lightslategray;
+}
+
+.linkTag {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.linkTag:hover {
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  color: green;
 }

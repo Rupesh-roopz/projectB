@@ -1,14 +1,13 @@
 import './App.css';
-import DashBoard from './components/DashBoard';
-import SignIn from './components/SignIn';
 import { Provider } from 'react-redux'
 import store from './redux/store,';
+import Router from './routes';
 
 function App() {
   return (
     <Provider store = {store}>
       <div className="App">
-        <SignIn />
+        <Router/>
       </div>
     </Provider>
 

@@ -11,13 +11,14 @@ const signIn = async ( req, res ) => {
             phoneNumber
         } = req.body;
         // console.log(req.file);
-        // image = req.file.originalname
+        // const image = req.file.originalname
         // await userSchema()
         const result = await db.getDb().collection('newUser').insertOne({
-            userName : name, 
-            email : email, 
-            password : password,  
-            phoneNumber : phoneNumber, 
+            userName : name,
+            email : email,
+            password : password,
+            phoneNumber : phoneNumber,
+            profileImage : image
             });
             res.send('success')
             console.log(result)
@@ -27,4 +28,19 @@ const signIn = async ( req, res ) => {
     
 }
 
-module.exports = { signIn }
+const logIn = async ( req, res) => {
+    const { email, password } = req.body
+
+    const result = await db.getDb().collection('newUser').findOne({
+        email : email,
+        password : password
+    })
+
+    if(result) {
+        console.log(result)
+        return res.status(200).send('Login Successfull')
+    } 
+    return res.status(400).send('Invalid Credentials');
+}
+
+module.exports = { signIn, logIn }
